@@ -10,7 +10,7 @@ from embedding import MistralEmbedding
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     dotenv.load_dotenv()
-    app.state.embedding = MistralEmbedding(os.environ.get("EMBEDDING_DEVICE", "cpu"))
+    app.state.embedding = MistralEmbedding(os.environ["EMBEDDING_DEVICE"])
     yield
 
 
